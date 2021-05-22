@@ -8,9 +8,6 @@
             <div class="card-body text-center">
                 <div class='image-wrapper'><img class='book-image' style="width: 100%;" src="{{ asset('images/dummy.png') }}"></div>
                 <h3 class='h3 book-title'>ベンチプレス</h3>
-                <p class='description'>
-                    2021/10/11
-                </p>
                 <a href=""class='btn btn-secondary detail-btn'>記録する</a>
             </div>
         </div>
