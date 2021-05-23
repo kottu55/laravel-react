@@ -12,8 +12,14 @@
 */
 
 
-Route::get('/', 'TrainingController@index')->name('index');
 
+Route::get('/', 'HomeController@index')->name('index');
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/training-note', 'TrainingController@index')->name('training-index');
+    Route::get('/training-note/new', 'TrainingController@new')->name('training-new');
+    Route::post('/training-note/new', 'TrainingController@create')->name('training-create');
+    Route::get('/training-note/calendar', 'TrainingController@calendar')->name('training-calendar');
+});
+Route::get('/home', 'HomeController@home')->name('home');
