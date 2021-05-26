@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\MoveRecord;
+
 
 class TrainingController extends Controller
 {
@@ -14,12 +16,27 @@ class TrainingController extends Controller
     {
         return view('trainingNote/new');
     }
-    public function create()
+    public function store(Request $request)
     {
-        return view('trainingNote/index');
+        $post = $request->all();
+        $data = [
+            'user_id' => \Auth::id(),
+            'training_id' => $post['training_id'],
+            'weight' => $post['weight'],
+            'reps' => $post['reps'],
+            'date' => $post['date'],
+        ];
+
+        MoveRecord::insert($data);
+
+        return redirect('/note');
     }
     public function calendar()
     {
         return view('trainingNote/calendar');
+    }
+    public function note()
+    {
+        return view('trainingNote/note');
     }
 }

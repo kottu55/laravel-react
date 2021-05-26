@@ -31,7 +31,7 @@
                     <option value="">2021/05/21</option>
                     <option value="">2021/05/20</option>
                 </select>
-                <span class="list-inline-item"><a href="{{ route('training-create')}}">✎</a></span>
+                <span class="list-inline-item"><a href="{{ route('training-new')}}">✎</a></span>
             </div>
             <div class="body">
                 <ul>

@@ -19,7 +19,8 @@ Auth::routes();
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/training-note', 'TrainingController@index')->name('training-index');
     Route::get('/training-note/new', 'TrainingController@new')->name('training-new');
-    Route::post('/training-note/new', 'TrainingController@create')->name('training-create');
+    Route::post('/training-note/store', 'TrainingController@store')->name('training-store');
     Route::get('/training-note/calendar', 'TrainingController@calendar')->name('training-calendar');
+    Route::get('/training-note/note', 'TrainingController@note')->name('training-note');
 });
 Route::get('/home', 'HomeController@home')->name('home');
