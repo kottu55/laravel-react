@@ -29,7 +29,7 @@ class TrainingController extends Controller
 
         MoveRecord::insert($data);
 
-        return redirect('/note');
+        return redirect('/training-note/note')->with('flash_message','記録しました');
     }
     public function calendar()
     {

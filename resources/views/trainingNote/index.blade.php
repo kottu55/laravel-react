@@ -6,7 +6,7 @@
         <ul class="list-inline">
             <li class="list-inline-item"><a href="{{ route('training-index') }}">home</a></li>
             <li class="list-inline-item"><a href="{{ route('training-calendar') }}">calendar</a></li>
-            <li class="list-inline-item"><a href="">note</a></li>
+            <li class="list-inline-item"><a href="{{ route('training-note') }}">note</a></li>
             <li class="list-inline-item"><a href="{{ route('training-new') }}">pen</a></li>
         </ul>
     </div>

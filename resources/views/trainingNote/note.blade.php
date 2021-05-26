@@ -11,7 +11,7 @@
         </ul>
     </div>
 
-    <p>calendar page</p>
+    <p>note page</p>
     <div class="footer-menu">
         <ul class="list-inline">
             <li class="list-inline-item"><a href="">jangle</a></li>
