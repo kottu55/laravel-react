@@ -12,6 +12,12 @@
     </div>
 
     <p>note page</p>
+    @foreach($records as $record)
+    <p>{{ $record->id }}</p>
+    <p>{{ $record->user_id }}</p>
+    <p>{{ $record->weight }}</p>
+
+    @endforeach
     <div class="footer-menu">
         <ul class="list-inline">
             <li class="list-inline-item"><a href="">jangle</a></li>

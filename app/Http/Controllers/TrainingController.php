@@ -37,6 +37,7 @@ class TrainingController extends Controller
     }
     public function note()
     {
-        return view('trainingNote/note');
+        $records = MoveRecord::where('user_id', 1)->orderBy('created_at', 'DESC')->get();
+        return view('trainingNote/note', compact('records'));
     }
 }
