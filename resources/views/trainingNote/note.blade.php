@@ -4,19 +4,20 @@
 
     <div class="menu-bar">
         <ul class="list-inline">
-            <li class="list-inline-item"><a href="{{ route('training-index') }}">home</a></li>
-            <li class="list-inline-item"><a href="{{ route('training-calendar') }}">calendar</a></li>
-            <li class="list-inline-item"><a href="{{ route('training-note') }}">note</a></li>
-            <li class="list-inline-item"><a href="{{ route('training-new') }}">pen</a></li>
+            <li class="list-inline-item"><a href="{{ route('training-index') }}">ホーム</a></li>
+            <li class="list-inline-item"><a href="{{ route('training-calendar') }}">カレンダー</a></li>
+            <li class="list-inline-item"><a href="{{ route('training-note') }}">ノート</a></li>
+            <li class="list-inline-item"><a href="{{ route('training-new') }}">記録する</a></li>
         </ul>
     </div>
 
-    <p>note page</p>
+    <h4>note page</h4>
     @foreach($records as $record)
-    <p>{{ $record->id }}</p>
-    <p>{{ $record->user_id }}</p>
-    <p>{{ $record->weight }}</p>
-
+    <p>
+        <span>{{ $record->weight }}kg</span>
+        <span>{{ $record->reps }}rep</span>
+        <span class="text-secondary">{{ $record->date }}</span>
+    </p>
     @endforeach
     <div class="footer-menu">
         <ul class="list-inline">
