@@ -12,13 +12,23 @@
     </div>
 
     <h4>note page</h4>
-    @foreach($records as $record)
-    <p>
-        <span>{{ $record->weight }}kg</span>
-        <span>{{ $record->reps }}rep</span>
-        <span class="text-secondary">{{ $record->date }}</span>
-    </p>
+
+    @foreach ($records as $record)
+        <p>
+            <span>{{ $record->weight }}kg</span>
+            <span>{{ $record->reps }}rep</span>
+            <span>{{ $record->training_id }}</span>
+            <span class="text-secondary">{{ $record->date }}</span>
+        </p>
     @endforeach
+
+    @foreach ($selections as $select)
+        <p>
+            <span>{{ $select->name }}</span>
+
+        </p>
+    @endforeach
+
     <div class="footer-menu">
         <ul class="list-inline">
             <li class="list-inline-item"><a href="">jangle</a></li>

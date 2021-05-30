@@ -1,25 +1,26 @@
 @extends('layouts.app')
 
 @section('content')
-    <form method='POST' action="{{route('training-store')}}">
+    <form method='POST' action="{{ route('training-store') }}">
         @csrf
         <div class="menu-bar">
             <ul class="list-inline">
-            <li class="list-inline-item"><a href="{{ route('training-index') }}">ホーム</a></li>
-            <li class="list-inline-item"><a href="{{ route('training-calendar') }}">カレンダー</a></li>
-            <li class="list-inline-item"><a href="{{ route('training-note') }}">ノート</a></li>
-            <li class="list-inline-item"><a href="{{ route('training-new') }}">記録する</a></li>
+                <li class="list-inline-item"><a href="{{ route('training-index') }}">ホーム</a></li>
+                <li class="list-inline-item"><a href="{{ route('training-calendar') }}">カレンダー</a></li>
+                <li class="list-inline-item"><a href="{{ route('training-note') }}">ノート</a></li>
+                <li class="list-inline-item"><a href="{{ route('training-new') }}">記録する</a></li>
             </ul>
         </div>
         <div class="new-body">
             <p>
-                <input name="date" id="date" type="date" value="<?php echo date('Y-m-d'); ?>" max="<?php echo date('Y-m-d'); ?>">
+                <input name="date" id="date" type="date" value="<?php echo date('Y-m-d'); ?>"
+                    max="<?php echo date('Y-m-d'); ?>">
             </p>
             <p>
                 <select name="training_id" id="" class="move">
-                    <option value="1">ベンチプレス</option>
-                    <option value="2">スクワット</option>
-                    <option value="3">デッドリフト</option>
+                    @foreach ($selections as $select)
+                        <option value="{{ $select->id }}">{{ $select->name }}</option>
+                    @endforeach
                 </select>
             </p>
             <p>
