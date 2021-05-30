@@ -14,13 +14,9 @@
         <div class="training-select">
             <h5>トレーニングを記録する</h5>
             <ul>
-                <li><a href="">ベンチプレス</a></li>
-                <li><a href="">スクワット</a></li>
-                <li><a href="">デッドリフト</a></li>
-                <li><a href="">ショルダープレス</a></li>
-                <li><a href="">プルオーバー</a></li>
-                <li><a href="">アームカール</a></li>
-                <li><a href="">トライセップス</a></li>
+                @foreach ($selections as $select)
+                        <li><a href="{{ route('training-new') }}">{{ $select->name }}</a></li>
+                @endforeach
             </ul>
         </div>
         <div class="body-weight">
@@ -31,7 +27,7 @@
                     <option value="">2021/05/21</option>
                     <option value="">2021/05/20</option>
                 </select>
-                <span class="list-inline-item"><a href="{{ route('training-new')}}">✎</a></span>
+                <span class="list-inline-item"><a href="{{ route('training-new') }}">✎</a></span>
             </div>
             <div class="body">
                 <ul>

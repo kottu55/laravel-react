@@ -4,17 +4,20 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\MoveRecord;
+use App\Selection;
 
 
 class TrainingController extends Controller
 {
     public function index()
     {
-        return view('trainingNote/index');
+        $selections = Selection::where('category', 'move')->get();
+        return view('trainingNote/index', compact('selections'));
     }
     public function new()
     {
-        return view('trainingNote/new');
+        $selections = Selection::where('category', 'move')->get();
+        return view('trainingNote/new', compact('selections'));
     }
     public function store(Request $request)
     {
@@ -38,6 +41,7 @@ class TrainingController extends Controller
     public function note()
     {
         $records = MoveRecord::where('user_id', 1)->orderBy('created_at', 'DESC')->get();
-        return view('trainingNote/note', compact('records'));
+        $selections = Selection::where('category', 'move')->get();
+        return view('trainingNote/note', compact('records', 'selections'));
     }
 }
