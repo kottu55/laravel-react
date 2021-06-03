@@ -66,7 +66,7 @@
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                         document.getElementById('logout-form').submit();">
+                                                                     document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 
@@ -89,7 +89,22 @@
                     {{ session('flash_message') }}
                 </div>
             @endif
+            <div class="menu-bar">
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a href="{{ route('training-index') }}">ホーム</a></li>
+                    <li class="list-inline-item"><a href="{{ route('training-calendar') }}">カレンダー</a></li>
+                    <li class="list-inline-item"><a href="{{ route('training-note', ['date' => now()->format('Y-m-d') ]) }}">ノート</a></li>
+                    <li class="list-inline-item"><a href="{{ route('training-new') }}">記録する</a></li>
+                </ul>
+            </div>
             @yield('content')
+            <div class="footer-menu">
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a href="">jangle</a></li>
+                    <li class="list-inline-item"><a href="">copylight</a></li>
+                    <li class="list-inline-item"><a href="">about</a></li>
+                </ul>
+            </div>
         </main>
         <footer class="footer p20">
             <small class="copyright">Laravel-react 2021 copyright</small>

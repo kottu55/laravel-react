@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\MoveRecord;
 use App\Selection;
+use Carbon\Carbon;
 
 
 class TrainingController extends Controller
@@ -32,16 +33,18 @@ class TrainingController extends Controller
 
         MoveRecord::insert($data);
 
-        return redirect('/training-note/note')->with('flash_message','記録しました');
+        return redirect(route('training-note', ['date' => $data['date']]))->with('flash_message', '記録しました');
     }
     public function calendar()
     {
         return view('trainingNote/calendar');
     }
-    public function note()
+    public function note($date)
     {
-        $records = MoveRecord::where('user_id', 1)->orderBy('created_at', 'DESC')->get();
+        $date = new Carbon($date);
+        $date = $date->format('Y-m-d');
+        $records = MoveRecord::where('date', $date)->orderBy('training_id', 'ASC')->get();
         $selections = Selection::where('category', 'move')->get();
-        return view('trainingNote/note', compact('records', 'selections'));
+        return view('trainingNote/note', compact('records', 'selections', 'date'));
     }
 }
