@@ -42,8 +42,7 @@ class TrainingController extends Controller
     public function note($date)
     {
         $date = new Carbon($date);
-        $date = $date->format('Y-m-d');
-        $records = MoveRecord::where('date', $date)->orderBy('training_id', 'ASC')->get();
+        $records = MoveRecord::where('date', $date->format('Y-m-d'))->orderBy('training_id', 'ASC')->get();
         $selections = Selection::where('category', 'move')->get();
         return view('trainingNote/note', compact('records', 'selections', 'date'));
     }
