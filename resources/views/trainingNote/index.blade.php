@@ -13,6 +13,7 @@
         <div class="body-weight">
             <div class="title list-inline">
                 <h5 class="list-inline-item">体重</h5>
+                <p><a href="{{ route('weight.index') }}" href="">詳細ページ</a></p>
                 <select class="list-inline-item" name="" id="">
                     <option value="today">2021/05/22</option>
                     <option value="">2021/05/21</option>
