@@ -21,6 +21,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/training-note/new', 'TrainingController@new')->name('training-new');
     Route::post('/training-note/store', 'TrainingController@store')->name('training-store');
     Route::get('/training-note/calendar', 'TrainingController@calendar')->name('training-calendar');
-    Route::get('/training-note/{date}', 'TrainingController@note')->name('training-note');
+    Route::get('/training-note/{date?}', 'TrainingController@note')->where('date', '^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$')->name('training-note');
+    Route::get('/training-note/weight', 'BodyWeightController@index')->name('weight.index');
+    Route::get('/training-note/japan', 'BodyWeightController@japan')->name('weight.japan');
+    Route::get('/training-note/weight/create', 'BodyWeightController@create')->name('weight.create');
 });
 Route::get('/home', 'HomeController@home')->name('home');
