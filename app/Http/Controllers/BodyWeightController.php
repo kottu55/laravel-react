@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\BodyWeight;
 use Illuminate\Http\Request;
 
 
@@ -10,11 +11,6 @@ class BodyWeightController extends Controller
     public function index()
     {
         return view('bodyWeight.index');
-    }
-
-    public function japan()
-    {
-        return view('bodyWeight.japan');
     }
 
     public function create()
@@ -30,7 +26,16 @@ class BodyWeightController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $post = $request->all();
+        $data = [
+            'user_id' => \Auth::id(),
+            'bodyweight' => $post['bodyweight'],
+            'date' => $post['date'],
+        ];
+
+        BodyWeight::insert($data);
+
+        return redirect(route('weight.index'))->with('flash_message', '記録しました');
     }
 
     /**
