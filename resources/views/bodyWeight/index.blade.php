@@ -2,8 +2,9 @@
 
 @section('content')
 
-<div class="row justify-content-center">
-    hello weight index
+<div class="">
+    <p>hello weight index</p>
+    <p><a href="{{ route('weight.create') }}">new</a></p>
 </div>
 
 @endsection
