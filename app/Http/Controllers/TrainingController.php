@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\MoveRecord;
+use App\BodyWeight;
 use App\Selection;
 use Carbon\Carbon;
 
@@ -13,7 +14,8 @@ class TrainingController extends Controller
     public function index()
     {
         $selections = Selection::where('category', 'move')->get();
-        return view('trainingNote/index', compact('selections'));
+        $bodyWeights = BodyWeight::where('user_id', \Auth::id())->get();
+        return view('trainingNote/index', compact('selections', 'bodyWeights'));
     }
     public function new()
     {
