@@ -10,7 +10,8 @@ class BodyWeightController extends Controller
 {
     public function index()
     {
-        return view('bodyWeight.index');
+        $bodyWeights = BodyWeight::where('user_id', \Auth::id())->get();
+        return view('bodyWeight.index', compact('bodyWeights'));
     }
 
     public function create()
