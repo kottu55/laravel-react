@@ -3,8 +3,7 @@
 @section('content')
 
 <div class="">
-    <p>hello weight index</p>
-    <p><a href="{{ route('weight.create') }}">new</a></p>
+    <p><a href="{{ route('weight.create') }}">記録する</a></p>
             <div class="body-weight">
                 <div><h5 class="">体重</h5></div>
             <div class="body">
