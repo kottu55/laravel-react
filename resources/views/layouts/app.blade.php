@@ -100,9 +100,9 @@
             @yield('content')
             <div class="footer-menu">
                 <ul class="list-inline">
-                    <li class="list-inline-item"><a href="">jangle</a></li>
-                    <li class="list-inline-item"><a href="">copylight</a></li>
-                    <li class="list-inline-item"><a href="">about</a></li>
+                    <li class="list-inline-item"><a href="training-index">jangle</a></li>
+                    <li class="list-inline-item">copylight</li>
+                    <li class="list-inline-item"><a href="{{ route('about') }}">about</a></li>
                 </ul>
             </div>
         </main>

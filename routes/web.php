@@ -25,5 +25,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/training-note/weight', 'BodyWeightController@index')->name('weight.index');
     Route::post('/training-note/weight/store', 'BodyWeightController@store')->name('weight.store');
     Route::get('/training-note/weight/create', 'BodyWeightController@create')->name('weight.create');
+    Route::view('/training-note/about', 'trainingNote/about')->name('about');
 });
 Route::get('/home', 'HomeController@home')->name('home');
+
