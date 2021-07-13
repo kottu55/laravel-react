@@ -66,7 +66,7 @@
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                                     document.getElementById('logout-form').submit();">
+                                                                         document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 
@@ -83,28 +83,35 @@
         </nav>
 
         <main class="main container">
+
             <!-- フラッシュメッセージ -->
             @if (session('flash_message'))
                 <div class="flash_message bg-info text-center text-white py-3 my-0 mb-3">
                     {{ session('flash_message') }}
                 </div>
             @endif
-            <div class="menu-bar">
-                <ul class="list-inline">
-                    <li class="list-inline-item"><a href="{{ route('training-index') }}">ホーム</a></li>
-                    <li class="list-inline-item"><a href="{{ route('training-calendar') }}">カレンダー</a></li>
-                    <li class="list-inline-item"><a href="{{ route('training-note', ['date' => now()->format('Y-m-d') ]) }}">ノート</a></li>
-                    <li class="list-inline-item"><a href="{{ route('training-new') }}">記録する</a></li>
-                </ul>
-            </div>
+            @if (Request::is('training-note*'))
+                <div class="menu-bar">
+                    <ul class="list-inline">
+                        <li class="list-inline-item"><a href="{{ route('training-index') }}">ホーム</a></li>
+                        <li class="list-inline-item"><a href="{{ route('training-calendar') }}">カレンダー</a></li>
+                        <li class="list-inline-item"><a
+                                href="{{ route('training-note', ['date' => now()->format('Y-m-d')]) }}">ノート</a></li>
+                        <li class="list-inline-item"><a href="{{ route('training-new') }}">記録する</a></li>
+                    </ul>
+                </div>
+            @endif
             @yield('content')
-            <div class="footer-menu">
-                <ul class="list-inline">
-                    <li class="list-inline-item"><a href="training-index">jangle</a></li>
-                    <li class="list-inline-item">copylight</li>
-                    <li class="list-inline-item"><a href="{{ route('about') }}">about</a></li>
-                </ul>
-            </div>
+            @if (Request::is('training-note*'))
+                <div class="footer-menu">
+                    <ul class="list-inline">
+                        <li class="list-inline-item"><a href="training-index">jangle</a></li>
+                        <li class="list-inline-item">copylight</li>
+                        <li class="list-inline-item"><a href="{{ route('about') }}">about</a></li>
+                    </ul>
+                </div>
+            @endif
+
         </main>
         <footer class="footer p20">
             <small class="copyright">Laravel-react 2021 copyright</small>
