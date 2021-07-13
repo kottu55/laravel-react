@@ -19,17 +19,16 @@
     @else
         @foreach ($selections as $selection)
             @if ($records->where('training_id', $selection->id)->count())
-            <p><a href="{{ route('training-new') }}">{{ $selection->name }}</a></p>
-            <ul>
-                @foreach ($records->where('training_id', $selection->id) as $record)
-                    <li>
-                        <span>{{ $record->weight }}kg</span>
-                        <span>{{ $record->reps }}rep</span>
-                    </li>
-                @endforeach
-            </ul>
-             @endif
+                <p class="mb-1"><a href="{{ route('training-new') }}">{{ $selection->name }}</a></p>
+                <ul>
+                    @foreach ($records->where('training_id', $selection->id) as $record)
+                        <li>
+                            <span>{{ $record->weight }}kg</span>
+                            <span>{{ $record->reps }}rep</span>
+                        </li>
+                    @endforeach
+                </ul>
+            @endif
         @endforeach
     @endif
 @endsection
-
