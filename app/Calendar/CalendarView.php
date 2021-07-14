@@ -6,7 +6,6 @@ use Carbon\Carbon;
 class CalendarView{
 
     private $carbon;
-
     function __construct($date){
         $this->carbon = new Carbon($date);
     }
@@ -34,6 +33,24 @@ class CalendarView{
         $html[] = '</table>';
         $html[] = '</div>';
         return implode("", $html);
+    }
+
+    protected function getWeeks(){
+        $weeks = [];
+        $firstDay = $this->carbon->copy()->firstOfMonth();
+        $lastDay = $this->carbon->copy()->lastOfMonth();
+        $week = new CalendarWeek($firstDay->copy());
+        $weeks[] = $week;
+
+        $tmpDay = $firstDay->copy()->addDay(7)->startOfWeek();
+
+        while($tmpDay->lte($lastDay)){
+            $week = new CalendarWeek($tmpDay, count($weeks));
+            $weels[] = $week;
+
+            $tmpDay->addDay(7);
+        }
+        return $week;
     }
 }
 
