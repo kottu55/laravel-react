@@ -4,6 +4,8 @@ namespace App\Calendar;
 
 use Carbon\Carbon;
 
+use function PHPUnit\Framework\lessThanOrEqual;
+
 class CalendarWeekDay
 {
     protected $carbon;
@@ -15,7 +17,12 @@ class CalendarWeekDay
 
     function getClassName()
     {
-        return "day-" . strtolower($this->carbon->format("D"));
+        if ($this->carbon->isToday()){
+            return "day-" . strtolower($this->carbon->format("D")) . " day-today";
+        } else {
+            return "day-" . strtolower($this->carbon->format("D"));
+        }
+
     }
 
     /**

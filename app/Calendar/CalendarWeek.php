@@ -32,7 +32,7 @@ class CalendarWeek {
                 continue;
             }
 
-            $day = new CalendarWeekday($tmpday->copy());
+            $day = new CalendarWeekday($tmpDay->copy());
             $days[] = $day;
             $tmpDay->addDay(1);
         }

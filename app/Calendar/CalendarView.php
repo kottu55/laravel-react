@@ -30,7 +30,6 @@ class CalendarView{
 		$html[] = '<th>日</th>';
 		$html[] = '</tr>';
 		$html[] = '</thead>';
-
 		$html[] = '<tbody>';
 
 		$weeks = $this->getWeeks();
@@ -44,9 +43,7 @@ class CalendarView{
 			}
 			$html[] = '</tr>';
 		}
-
 		$html[] = '</tbody>';
-
 		$html[] = '</table>';
 		$html[] = '</div>';
 		return implode("", $html);
@@ -63,11 +60,11 @@ class CalendarView{
 
         while($tmpDay->lte($lastDay)){
             $week = new CalendarWeek($tmpDay, count($weeks));
-            $weels[] = $week;
+            $weeks[] = $week;
 
             $tmpDay->addDay(7);
         }
-        return $week;
+        return $weeks;
     }
 }
 
