@@ -6,7 +6,7 @@
             <h5>トレーニングを記録する</h5>
             <ul class="list-inline ml-2">
                 @foreach ($selections as $select)
-                        <li><a href="{{ route('training-new') }}">{{ $select->name }}</a></li>
+                        <li><a href="{{ route('training-new', ['menu' => $select->id]) }}">{{ $select->name }}</a></li>
                 @endforeach
             </ul>
         </div>
