@@ -10,12 +10,16 @@
             <p>
                 <select name="training_id" id="" class="move">
                     @foreach ($selections as $select)
+                        @if ($menu_id == $select->id)
+                        <option value="{{ $select->id }}" selected>{{ $select->name }}</option>
+                        @else
                         <option value="{{ $select->id }}">{{ $select->name }}</option>
+                        @endif
                     @endforeach
                 </select>
             </p>
             <p>
-                <input name="weight" id="" type="number" value="50" min="5" max="120">
+                <input name="weight" id="" type="number" value="50" min="1" max="200">
                 <span>kg</span>
             </p>
             <p>
@@ -23,9 +27,9 @@
 
                 <span>reps</span>
             </p>
+            <p>{{ $menu_id }}</p>
             <input type="submit" class="btn btn-primary" value="記録する">
         </div>
-
     </form>
 
 @endsection

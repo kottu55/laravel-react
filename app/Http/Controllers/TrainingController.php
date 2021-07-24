@@ -17,10 +17,11 @@ class TrainingController extends Controller
         $bodyWeights = BodyWeight::where('user_id', \Auth::id())->get();
         return view('trainingNote/index', compact('selections', 'bodyWeights'));
     }
-    public function new()
+    public function new(Request $request)
     {
+        $menu_id = $request->menu;
         $selections = Selection::where('category', 'move')->get();
-        return view('trainingNote/new', compact('selections'));
+        return view('trainingNote/new', compact('selections', 'menu_id'));
     }
     public function store(Request $request)
     {
