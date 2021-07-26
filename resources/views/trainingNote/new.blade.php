@@ -27,7 +27,6 @@
 
                 <span>reps</span>
             </p>
-            <p>{{ $menu_id }}</p>
             <input type="submit" class="btn btn-primary" value="記録する">
         </div>
     </form>
