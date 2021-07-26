@@ -51,6 +51,9 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
+                                <a href="{{ route('login.guest') }}" class="nav-link primary">ゲストでログイン</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                             @if (Route::has('register'))
@@ -66,8 +69,9 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                                         document.getElementById('logout-form').submit();">
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                                                             document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 
@@ -106,7 +110,7 @@
             @if (Request::is('training-note*'))
                 <div class="footer-menu">
                     <ul class="list-inline">
-                        <li class="list-inline-item"><a href="training-index">jangle</a></li>
+                        <li class="list-inline-item"><a href="{{ route('index') }}">jangle</a></li>
                         <li class="list-inline-item">copylight</li>
                         <li class="list-inline-item"><a href="{{ route('about') }}">about</a></li>
                     </ul>

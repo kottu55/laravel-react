@@ -15,6 +15,7 @@
 
 Route::get('/', 'HomeController@index')->name('index');
 Auth::routes();
+Route::get('guest', 'Auth\LoginController@guestLogin')->name('login.guest');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/training-note', 'TrainingController@index')->name('training-index');
