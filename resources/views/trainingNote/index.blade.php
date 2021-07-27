@@ -16,13 +16,14 @@
                 <ul class="list-inline ml-2">
                     @foreach ($bodyWeights as $weight)
                         <li>
-                            <span>{{ $weight->bodyweight }}</span>
+                            <span>{{ sprintf('%.1f', $weight->bodyweight) }}</span>
                             <span>kg</span>
                             <span class="text-muted">　{{ $weight->date }}</span>
                         </li>
                     @endforeach
+                    <li>・・・</li>
+                    <li><a href="{{ route('weight.index') }}">すべて</a></li>
                 </ul>
-                <div class=""><a href="{{ route('weight.index') }}">すべて</a></div>
             </div>
         </div>
     </div>

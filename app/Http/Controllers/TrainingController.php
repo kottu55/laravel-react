@@ -14,7 +14,7 @@ class TrainingController extends Controller
     public function index()
     {
         $selections = Selection::where('category', 'move')->get();
-        $bodyWeights = BodyWeight::where('user_id', \Auth::id())->get();
+        $bodyWeights = BodyWeight::where('user_id', \Auth::id())->orderBy('date', 'DESC')->take(7)->get();
         return view('trainingNote/index', compact('selections', 'bodyWeights'));
     }
     public function new(Request $request)

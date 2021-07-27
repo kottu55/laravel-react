@@ -96,7 +96,7 @@
                 </div>
             @endif
             @if (Request::is('training-note*'))
-                <div class="menu-bar">
+                <div class="menu-bar mb-5">
                     <ul class="list-inline">
                         <li class="list-inline-item"><a href="{{ route('training-index') }}">ホーム</a></li>
                         <li class="list-inline-item"><a href="{{ route('training-calendar') }}">カレンダー</a></li>
@@ -108,7 +108,7 @@
             @endif
             @yield('content')
             @if (Request::is('training-note*'))
-                <div class="footer-menu">
+                <div class="footer-menu mt-5">
                     <ul class="list-inline">
                         <li class="list-inline-item"><a href="{{ route('index') }}">jangle</a></li>
                         <li class="list-inline-item">copylight</li>
