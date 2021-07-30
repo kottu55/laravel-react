@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <h4>note page</h4>
+    <h4>日別ノート</h4>
     <p>
         <span><a href="{{ route('training-note', [
     'date' => $date->copy()->subDay()->format('Y-m-d'),
@@ -19,7 +19,8 @@
     @else
         @foreach ($selections as $selection)
             @if ($records->where('training_id', $selection->id)->count())
-                <p class="mb-1"><a href="{{ route('training-new') }}">{{ $selection->name }}</a></p>
+                <p class="mb-1"><a
+                        href="{{ route('training-new', ['menu' => $selection->id]) }}">{{ $selection->name }}</a></p>
                 <ul>
                     @foreach ($records->where('training_id', $selection->id) as $record)
                         <li>
